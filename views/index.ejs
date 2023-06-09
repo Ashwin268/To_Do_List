@@ -1,0 +1,37 @@
+<%- include("./partials/header")  %>
+<div
+  class="bg-image w-100 d-block"
+  style="
+    background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/6.webp');
+    height: 100vh;
+  "
+>
+<nav class="navbar navbar-light bg-secondary">
+    <i class="fa-solid fa-list ml-3" style="color: #eeeff1;"></i>
+    <a class="navbar-brand ml-auto text-white " href="/">TodoList App</a>
+</nav>
+<div class="container mt-3 text-center">
+    <h1 class="navbar-brand   bg-light text-dark" href="/">&nbsp;&nbsp;Today's To Do List&nbsp;&nbsp;</h1>
+</div>
+
+<div class="container mt-3">
+    <form action="/add/todo" method="POST" class="d-flex">
+        <input type="text" name="todo" class="form-control " placeholder="Add New Task Here">
+        <input type="submit" value="+" class="btn btn-md btn-success mx-2">
+    </form>
+
+
+    <ul class="list-group my-5 " >
+        <% todo.forEach(todos => { %>
+        <li class="list-group-item bg-transparent d-flex justify-content-between align-items-center" style="border-top: none; border-bottom: 1px solid #dee2e6;"><h6><%= todos.todo %></h6>  
+            <a href="/delete/todo/<%= todos._id %>" class="btn btn-danger btn-sm mx-6">-</a></li>
+
+        <% }) %>
+
+    </ul>
+</div>
+</div>
+
+
+
+<%- include("./partials/footer")  %>
